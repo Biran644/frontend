@@ -5,7 +5,7 @@ import 'react-csv-importer/dist/index.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Button } from '@fluentui/react-components';
-import {Placeholder} from "./Placeholder";
+import {InputField} from "./components/InputField";
 
 
 function App() {
@@ -56,16 +56,11 @@ function App() {
 
 
 
-          <div className="my-4">
-              <Placeholder
-                  fieldName="First Round Time"
-                  fieldPlaceholder="Enter the first round time"
-              />
-          </div>
 
 
 
-          <Placeholder
+
+          <InputField
               fieldName="Jump Off Round Time"
               fieldPlaceholder="Enter the Jump Off Round Time"
           />

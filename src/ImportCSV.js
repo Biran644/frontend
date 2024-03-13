@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import {Importer, ImporterField} from 'react-csv-importer';
 import "./App.css"
+import {InputField} from "./components/InputField";
+import SelectField from "./components/SelectField";
+import {
+  SaveRegular
+} from "@fluentui/react-icons";
+import ButtonField from "./components/ButtonField";
+
+
 
 export default function ImportCSV() {
   const [data, setData] = useState([]);
@@ -142,119 +150,44 @@ export default function ImportCSV() {
               <ImporterField name="year" label="Year" optional/>
               <ImporterField name="city" label="City" optional/>
           </Importer>
-      
-        
-
-        <div className='flex flex-row w-full gap-5 px-5 my-6'>
-          <label
-            for="Class"
-            className="import-label"
-          >
-            <input
-              type="text"
-              id="Class"
-              className="peer import-input"  
-              placeholder="Class"
-            />
-
-            <span
-              className="import-span"
-            >
-              Class Number
-            </span>
-          </label>
 
 
-
-
-
-          <label
-            for="1stRoundTime"
-            className="import-label"
-          >
-            <input
-              type="text"
-              id="1stRoundTime"
-              className="peer import-input"
-              placeholder="1st Round Time"
-            />
-
-            <span
-              className="import-span"
-            >
-              1st Round Time
-            </span>
-          </label>
-
-          <label
-            for="JoRoundTime"
-            className="import-label"
-          >
-            <input
-              type="text"
-              id="JoRoundTime"
-              className="peer import-input"
-              placeholder="Jo Round Time"
-            />
-
-            <span
-              className="import-span"
-            >
-              Jo Round Time
-            </span>
-          </label>
-
+      <div className='flex flex-row w-full gap-5 px-5 mt-6'>
+        <div className="my-4">
+          <InputField
+              fieldName="Class Number"
+              fieldPlaceholder="Enter the Class Number"
+          />
         </div>
-          
 
-        <div className='px-5 my-6'>
-          <label for="HeadlineAct" class="block font-medium text-white text-center text-xl">  Competition Type </label>
-
-          <select
-            name="HeadlineAct"
-            id="HeadlineAct"
-            className="import-select"
-          >
-            <option value="">Please select</option>
-            <option value="JM">John Mayer</option>
-            <option value="SRV">Stevie Ray Vaughn</option>
-            <option value="JH">Jimi Hendrix</option>
-            <option value="BBK">B.B King</option>
-            <option value="AK">Albert King</option>
-            <option value="BG">Buddy Guy</option>
-            <option value="EC">Eric Clapton</option>
-          </select>
+        <div className="my-4">
+          <InputField
+              fieldName="1st Round Time"
+              fieldPlaceholder="Enter the 1st Round Time"
+          />
         </div>
-  
 
-          {/* <button onClick={sendToMain} style={{marginTop:'10px'}}>Send to Main</button> */}
+        <div className="my-4">
+          <InputField
+              fieldName="Jo Round Time"
+              fieldPlaceholder="Enter the Jo Round Time"
+          />
+        </div>
+      </div>
 
-          <div className='flex flex-row justify-center'>
-            <button
-              onClick={TestExit}
-              className="group flex items-center justify-between gap-4 rounded-full border border-current px-5 py-3 text-gray-900 transition-colors bg-white hover:bg-gray-900 hover:border-white focus:outline-none focus:ring active:bg-indigo-500"
-            >
-              <span class="font-medium transition-colors group-hover:text-white"> Save & Continue </span>
+      <div className='px-7 mb-6'>
+        <SelectField
+            label="Competition Type"
+        />
+      </div>
 
-              <span
-                class="shrink-0 rounded-full border border-gray-900 bg-white p-2 group-active:border-indigo-500"
-              >
-                <svg
-                  class="size-5 rtl:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </span>
-            </button>
+      <div className='flex flex-row justify-center'>
+        <ButtonField
+            icon={<SaveRegular />}
+            label="Save & Continue"
+            onClick={TestExit}
+        />
+
           </div>
     </div>
   )

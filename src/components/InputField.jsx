@@ -7,17 +7,23 @@ const useStyles = makeStyles({
         flexDirection: "column",
         rowGap: "5px",
         maxWidth: "300px",
+        color: "white",
+    },
+    label: {
+        color: "white",
     },
 });
 
-export const Placeholder = ({fieldName, fieldPlaceholder}) => {
+
+
+export const InputField = ({fieldName, fieldPlaceholder}) => {
     const inputId = useId("input-with-placeholder");
     const styles = useStyles();
 
     return (
         <div className="ml-5">
             <div className={styles.root}>
-                <Label htmlFor={inputId}>{fieldName}</Label>
+                <Label htmlFor={inputId} className={styles.label}>{fieldName}</Label>
                 <Input placeholder={fieldPlaceholder} id={inputId}/>
             </div>
         </div>
